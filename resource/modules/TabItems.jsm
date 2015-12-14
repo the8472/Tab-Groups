@@ -1,4 +1,4 @@
-// VERSION 1.0.8
+// VERSION 1.0.9
 
 XPCOMUtils.defineLazyModuleGetter(this, "gPageThumbnails", "resource://gre/modules/PageThumbs.jsm", "PageThumbs");
 
@@ -152,7 +152,7 @@ this.TabItem.prototype = (!this.Item) ? null : Utils.extend(new Item(), new Subs
 
 	// Checks the specified data (as returned by TabItem.getStorageData) and returns true if it looks valid.
 	storageSanity: function(data) {
-		return typeof(data) == 'object' && typeof(data.groupID) == 'number';
+		return typeof(data) == 'object' && data !== null && typeof(data.groupID) == 'number';
 	},
 
 	// Store persistent for this object.
